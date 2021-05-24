@@ -1,23 +1,17 @@
 from django.db import models
 
 # Create your models here.
-
-
 class Menu(models.Model):
     name = models.CharField(max_length=50)
 
     class Meta:
         db_table = 'menus'
-
-
 class Category(models.Model):
     name = models.CharField(max_length=50)
     menu = models.ForeignKey(Menu, on_delete=models.CASCADE)
 
     class Meta:
         db_table = 'categories'
-
-
 
 class Nutrition(models.Model):
     one_serving_kcal = models.DecimalField(max_digits=6, decimal_places=2, null=True)
